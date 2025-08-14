@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      background: url('bg-blur.jpg') center/cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(8px);
+      background-color: black;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    input, select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin: 5px;
+      outline: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4cafef;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #3790d9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kenalan Dulu</h1>
+  <input type="text" id="nama" placeholder="Nama kamu...">
+  <select id="gender">
+    <option value="">Pilih gender...</option>
+    <option value="cowok">Cowok</option>
+    <option value="cewek">Cewek</option>
+  </select>
+  <button onclick="mulai()">Mulai</button>
+
+  <script>
+    function mulai() {
+      let nama = document.getElementById("nama").value.trim();
+      let gender = document.getElementById("gender").value;
+      if (nama === "" || gender === "") {
+        alert("Isi nama dan gender dulu ya.");
+        return;
+      }
+      localStorage.setItem("namaPengguna", nama);
+      localStorage.setItem("genderPengguna", gender);
+      window.location.href = "main.html";
+    }
+  </script>
+</body>
+</html>
